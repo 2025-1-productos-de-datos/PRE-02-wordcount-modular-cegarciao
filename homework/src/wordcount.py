@@ -1,15 +1,32 @@
 
 import os
 
+def read_all_lines():
+    all_lines = []
+    input_file_list = os.listdir('data/input/')
+    for filename in input_file_list:
+        with open(filename, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            all_lines.extend(lines)
+    return all_lines
+
+
 
 def main():
 
-files_in_input_dir=os.listdir('data/input/')
-files_in_input_dir
+
+input_file_list = os.listdir('data/input/')
+#all_lines = read_all_lines()
+
+
+
+
+
+
 
 
 counter={}
-for filename in files_in_input_dir:
+for filename in input_file_list:
     with open('data/input/'+filename) as f:
         for l in f:
             for w in l.split( ):
@@ -17,14 +34,19 @@ for filename in files_in_input_dir:
                 counter[w] = counter.get(w, 0) + 1
 
 
-if not os.path.exists('data/output'):
-    os.makedirs('data/output')
+
+write_count_words(counter)
 
 
-with open("data/output/results.tsv", "w", encoding="utf-8") as f:
-        for key, value in counter.items():
-        
-            f.write(f"{key}\t{value}\n")
+def write_count_words(counter):
+    if not os.path.exists('data/output'):
+        os.makedirs('data/output')
+
+
+
+    with open("data/output/results.tsv", "w", encoding="utf-8") as f:
+            for key, value in counter.items():
+                f.write(f"{key}\t{value}\n")
 
 
 if __name__ == "__main__":
