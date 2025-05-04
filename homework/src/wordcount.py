@@ -3,6 +3,7 @@ import os
 
 from ._internals.write_count_words import write_count_words
 from ._internals.read_all_lines import read_all_lines
+from ._internals.preprocess_lines import preprocess_lines
 
 def main():
 
@@ -10,7 +11,7 @@ def main():
     all_lines = read_all_lines()
 
 
-    all_lines = [line.lower().strip() for line in all_lines]
+    all_lines = preprocess_lines(all_lines)
 
 
     words = []
@@ -21,6 +22,8 @@ def main():
     counter = {}
     for word in words:
         counter[word] = counter.get(word, 0) + 1
+
+
 
 
 
