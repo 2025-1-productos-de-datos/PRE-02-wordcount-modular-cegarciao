@@ -2,18 +2,12 @@
 import os
 
 from ._internals.write_count_words import write_count_words
-
+from ._internals.read_all_lines import read_all_lines
 
 def main():
 
 
-    all_lines = []
-    input_file_list = os.listdir('data/input/')
-    for filename in input_file_list:
-            file_path = os.path.join('data/input/', filename)
-            with open(file_path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-            all_lines.extend(lines)
+    all_lines = read_all_lines()
 
 
     all_lines = [line.lower().strip() for line in all_lines]
@@ -27,6 +21,7 @@ def main():
     counter = {}
     for word in words:
         counter[word] = counter.get(word, 0) + 1
+
 
 
 # counter={}
