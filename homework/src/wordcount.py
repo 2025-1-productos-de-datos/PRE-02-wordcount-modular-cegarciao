@@ -9,6 +9,10 @@ from ._internals.word_counts import word_counts
 
 def main():
 
+    if len(sys.argv) != 3:
+        print("Usage: python3 homework <input_folder> <output_folder>")
+        sys.exit(1)
+
     input_folder = sys.argv[1]
     output_folder = sys.argv[2]
 
