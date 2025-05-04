@@ -1,3 +1,4 @@
+import os
 import sys
 
 from ._internals.count_words import count_words

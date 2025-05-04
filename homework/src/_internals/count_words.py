@@ -1,3 +1,5 @@
+import os
+
 def count_words(words):
     counter = {}
     for word in words:

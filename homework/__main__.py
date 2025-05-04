@@ -1,6 +1,4 @@
-
-
-
+# python3 -m homework data/input data/output
 
 from .src.wordcount import main
 
