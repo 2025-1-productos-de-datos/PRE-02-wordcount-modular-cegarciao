@@ -4,6 +4,7 @@ import os
 from ._internals.write_count_words import write_count_words
 from ._internals.read_all_lines import read_all_lines
 from ._internals.preprocess_lines import preprocess_lines
+from ._internals.split_into_words import split_into_words
 
 def main():
 
@@ -14,14 +15,13 @@ def main():
     all_lines = preprocess_lines(all_lines)
 
 
-    words = []
-    for line in all_lines:
-        words.extend(line.strip('.,!?') for word in line.split())
+    words = split_into_words(all_lines)
 
 
     counter = {}
     for word in words:
         counter[word] = counter.get(word, 0) + 1
+
 
 
 
