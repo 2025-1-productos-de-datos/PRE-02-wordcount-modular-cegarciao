@@ -1,7 +1,7 @@
 import os
 
 
-def write_count_words(counter):
+def write_word_counts(counter):
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
